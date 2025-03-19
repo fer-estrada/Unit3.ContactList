@@ -1,3 +1,3 @@
 # Deployment Link
 
-https://darling-licorice-2d3392.netlify.app/
+https://taupe-crisp-9de421.netlify.app/
