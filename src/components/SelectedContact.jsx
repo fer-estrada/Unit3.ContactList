@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import '/Documents/coursework/unit3/block26/contact-list/src/App.css'
 
 export default function SelectedContact({ selectedContactId, setSelectedContactId }) {
-    const [contact, setContact] = useState([]);
+    const [contact, setContact] = useState(null);
     const [error, setError] = useState(null)
 
     useEffect(() => {
@@ -19,13 +19,27 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
     }, []);
 
     return (
-        <div className="selectedContact">
+        <div>
+            {contact && <div className="selectedContact">
+            <article>
+                <h3>{contact.name}</h3>
+                <p>{contact.email}</p>
+                <p>{contact.phone}</p>
+                <p>{contact.website}</p>
+                <p>{`${contact.address.street}, ${contact.address.suite}, ${contact.address.city}`}</p>
+            </article>
+            <button onClick={() => setSelectedContactId(null)}>Go Back</button>
+        </div>}
+        </div>
+    )
+}
+
+
+{/* <div className="selectedContact">
             <article>
                 <h3>{contact.name}</h3>
                 <p>{contact.email}</p>
                 <p>{contact.phone}</p>
             </article>
             <button onClick={() => setSelectedContactId(null)}>Go Back</button>
-        </div>
-    )
-}
+        </div> */}
